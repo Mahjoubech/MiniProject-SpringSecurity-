@@ -1,0 +1,85 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20251109-entiters-creation
+      author: Mahjoubech
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+                - column:
+                    name: id
+                    type: VARCHAR(50)
+                    constraints:
+                        primaryKey: true
+                        nullable: false
+                - column:
+                    name: nom_complet
+                    type: VARCHAR(100)
+                    constraints:
+                        nullable: false
+                        unique: true
+                - column:
+                    name: password
+                    type: VARCHAR(255)
+                    constraints:
+                        nullable: false
+                - column:
+                    name: email
+                    type: VARCHAR(255)
+                    constraints:
+                        nullable: false
+                        unique: true
+                - column:
+                    name: role
+                    type: VARCHAR(50)
+                    constraints:
+                        nullable: false
+                - column:
+                    name: date_creation
+                    type: TIMESTAMP WITHOUT TIME ZONE
+                    constraints:
+                        nullable: false
+        - createTable:
+            tableName: postes
+            columns:
+              - column:
+                  name: id
+                  type: VARCHAR(50)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: content
+                  type: VARCHAR(500)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date_creation
+                  type: TIMESTAMP WITHOUT TIME ZONE
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: comments
+            columns:
+              - column:
+                  name: id
+                  type: VARCHAR(50)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: content
+                  type: VARCHAR(500)
+                  constraints:
+                     nullable: false
+              - column:
+                  name: date_creation
+                  type: TIMESTAMP WITHOUT TIME ZONE
+                  constraints:
+                    nullable: false
